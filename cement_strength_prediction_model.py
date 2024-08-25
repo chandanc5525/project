@@ -173,15 +173,15 @@ data.ax = plt.subplots(figsize = (8,8))
 sns.heatmap(corr, annot = True)
 
 # Evaluating VIF Score
-from statsmodels.stats.outliers_influence import variance_inflation_factor
-def VIF(features):
-    vif = pd.DataFrame()
-    vif['vif'] = [variance_inflation_factor(features, i) for i in range(features.shape[1])]
-    vif['features'] = features.columns
-    vif = vif.sort_values(by = 'vif' , ascending = False)
-    return vif
+#from statsmodels.stats.outliers_influence import variance_inflation_factor
+#def VIF(features):
+#   vif = pd.DataFrame()
+#    vif['vif'] = [variance_inflation_factor(features, i) for i in range(features.shape[1])]
+#    vif['features'] = features.columns
+#    vif = vif.sort_values(by = 'vif' , ascending = False)
+#    return vif
 
-VIF(data.drop('concrete_compressive_strength' , axis=1))
+#VIF(data.drop('concrete_compressive_strength' , axis=1))
 
 def train_and_test_split(data, tcol, testSize=0.3, randomState = 3):
     X = data.drop(tcol,axis=1)
